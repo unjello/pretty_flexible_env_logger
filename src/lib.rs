@@ -48,15 +48,15 @@ pub use pretty_env_logger;
 #[doc(hidden)]
 pub use pretty_env_logger::env_logger;
 
-use pretty_env_logger::{formatted_timed_builder, formatted_builder};
 use log::SetLoggerError;
+use pretty_env_logger::{formatted_builder, formatted_timed_builder};
 
 /// Initializes default global logger.
 ///
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// It defaults to using settings from `RUST_LOG` environment variable
 ///
 /// # Panics
@@ -73,7 +73,7 @@ pub fn init() {
 /// will return an error.
 ///
 /// It defaults to using settings from `RUST_LOG` environment variable
-/// 
+///
 /// # Panics
 ///
 /// This function fails to set the global logger if one has already been set.
@@ -112,10 +112,10 @@ pub fn try_init_timed() -> Result<(), SetLoggerError> {
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// # Arguments
 ///
-/// * `environment_or_inline_value` - A string slice that holds the name of environment varialbe, or 
+/// * `environment_or_inline_value` - A string slice that holds the name of environment variable, or
 ///    the directives string in the same form as the `RUST_LOG` environment variable.
 ///
 /// # Panics
@@ -130,10 +130,10 @@ pub fn init_with(environment_or_inline_value: &str) {
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// # Arguments
-/// 
-/// * `environment_or_inline_value` - A string slice that holds the name of environment varialbe, or 
+///
+/// * `environment_or_inline_value` - A string slice that holds the name of environment variable, or
 ///    the directives string in the same form as the `RUST_LOG` environment variable.
 ///
 /// # Errors
@@ -148,19 +148,19 @@ pub fn init_timed_with(environment_or_inline_value: &str) {
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// # Arguments
 ///
-/// * `environment_or_inline_value` - A string slice that holds the name of environment varialbe, or 
+/// * `environment_or_inline_value` - A string slice that holds the name of environment variable, or
 ///    the directives string in the same form as the `RUST_LOG` environment variable.
-/// 
+///
 /// # Errors
 ///
 /// This function fails to set the global logger if one has already been set.
 pub fn try_init_with(environment_or_inline_value: &str) -> Result<(), SetLoggerError> {
     let value = match ::std::env::var(environment_or_inline_value) {
         Ok(s) => Some(s),
-        Err(_) => Some(environment_or_inline_value.to_string())
+        Err(_) => Some(environment_or_inline_value.to_string()),
     };
     try_init_custom_string(value)
 }
@@ -170,21 +170,19 @@ pub fn try_init_with(environment_or_inline_value: &str) -> Result<(), SetLoggerE
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// # Arguments
-/// 
-/// * `environment_or_inline_value` - A string slice that holds the name of environment varialbe, or 
+///
+/// * `environment_or_inline_value` - A string slice that holds the name of environment variable, or
 ///    the directives string in the same form as the `RUST_LOG` environment variable.
 ///
 /// # Errors
 ///
 /// This function fails to set the global logger if one has already been set.
-pub fn try_init_timed_with(
-    environment_or_inline_value: &str,
-) -> Result<(), log::SetLoggerError> {
+pub fn try_init_timed_with(environment_or_inline_value: &str) -> Result<(), log::SetLoggerError> {
     let value = match ::std::env::var(environment_or_inline_value) {
         Ok(s) => Some(s),
-        Err(_) => Some(environment_or_inline_value.to_string())
+        Err(_) => Some(environment_or_inline_value.to_string()),
     };
     try_init_timed_custom_string(value)
 }
@@ -194,9 +192,9 @@ pub fn try_init_timed_with(
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// # Arguments
-/// 
+///
 /// * `filters` - A directives `String` in the same form as the `RUST_LOG` environment variable.
 ///
 /// # Errors
@@ -217,17 +215,15 @@ pub fn try_init_custom_string(filters: Option<String>) -> Result<(), SetLoggerEr
 /// This should be called early in the execution of a Rust program, and the
 /// global logger may only be initialized once. Future initialization attempts
 /// will return an error.
-/// 
+///
 /// # Arguments
-/// 
+///
 /// * `filters` - A directives `String` in the same form as the `RUST_LOG` environment variable.
 ///
 /// # Errors
 ///
 /// This function fails to set the global logger if one has already been set.
-pub fn try_init_timed_custom_string(
-    filters: Option<String>,
-) -> Result<(), SetLoggerError> {
+pub fn try_init_timed_custom_string(filters: Option<String>) -> Result<(), SetLoggerError> {
     let mut builder = formatted_timed_builder();
 
     if let Some(s) = filters {

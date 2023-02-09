@@ -1,4 +1,4 @@
-use log::{info,warn,error,debug};
+use log::{debug, error, info, warn};
 use std::env;
 
 fn main() {
