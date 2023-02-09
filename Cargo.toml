@@ -5,6 +5,7 @@ description = "A visually pretty yet a bit configurable env_logger"
 edition = "2021"
 keywords = ["logger", "logging", "log"]
 license = "CC0-1.0"
+license-file = "LICENSE"
 categories = ["development-tools::debugging"]
 authors = ["Andrzej Lichnerowicz <andrzej@lichnerowicz.pl>"]
 repository = "https://git.sr.ht/~unjello/pretty_flexible_env_logger"
