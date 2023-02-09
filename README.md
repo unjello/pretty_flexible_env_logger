@@ -3,7 +3,7 @@
 [![Crates.io](https://img.shields.io/crates/v/pretty_flexible_env_logger.svg)](https://crates.io/crates/pretty_flexible_env_logger)
 [![Docs](https://docs.rs/pretty_flexible_env_logger/badge.svg)](https://docs.rs/pretty_flexible_env_logger)
 [![CC0-1.0](https://img.shields.io/crates/l/pretty_flexible_env_logger.svg)](https://crates.io/crates/pretty_flexible_env_logger)
-[![GitHub CI](https://github.com/unjello/pretty_flexible_env_logger/actions/workflows/ci/badge.svg)]()
+[![GitHub CI](https://github.com/unjello/pretty_flexible_env_logger/actions/workflows/ci.yaml/badge.svg)]()
 
 A simple logger built on top of [pretty_env_logger](https://github.com/seanmonstar/pretty-env-logger). An upstream's [design decision](https://github.com/seanmonstar/pretty-env-logger) was not to allow run-time configuration, but I have found that for CLI tools it actually makes sense to control logging in runtime based on command-line params, rather than requiring users to set `RUST_LOG` directly.
 
