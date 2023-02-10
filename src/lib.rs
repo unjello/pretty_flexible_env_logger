@@ -19,7 +19,7 @@
 //!         eprintln!("Some custom msg {}", e);
 //!         panic!("error!") // or whatever
 //!     }
-//!     
+//!
 //!     info!("info");
 //!     warn!("warn");
 //!     error!("error");

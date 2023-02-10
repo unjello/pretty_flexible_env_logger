@@ -1,0 +1,21 @@
+repos:
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.4.0
+      hooks:
+        -   id: fix-byte-order-marker
+        -   id: check-case-conflict
+        -   id: check-merge-conflict
+        -   id: check-symlinks
+        -   id: check-yaml
+        -   id: check-toml
+        -   id: end-of-file-fixer
+        -   id: mixed-line-ending
+            args: [--fix=lf]
+        -   id: trailing-whitespace
+  -   repo: https://github.com/doublify/pre-commit-rust
+      rev: master
+      hooks:
+        -   id: fmt
+            args: ["--verbose", "--"]
+        -   id: cargo-check
+        -   id: clippy
