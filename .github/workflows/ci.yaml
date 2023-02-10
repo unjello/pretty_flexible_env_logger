@@ -30,6 +30,10 @@ jobs:
     container: ${{ matrix.container }}
 
     steps:
+      - name: Install prerequisites
+        if: contains(matrix.os, 'ubuntu')
+        run: apt-get update && apt-get install -y curl build-essential gcc g++
+
       - name: Checkout sources
         uses: actions/checkout@v3
 
